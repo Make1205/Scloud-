@@ -54,3 +54,5 @@ dkms.conf
 .vscode/
 
 .idea
+# Benchmark output
+bench_results/
