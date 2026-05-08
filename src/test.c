@@ -6,8 +6,12 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
+#ifndef KEM_TEST_ITERATIONS
 #define KEM_TEST_ITERATIONS 100
+#endif
+#ifndef KEM_BENCH_SECONDS
 #define KEM_BENCH_SECONDS 1
+#endif
 #if (scloudplus_l == 128)
 #define SYSTEM_NAME "scloud plus 128"
 #elif (scloudplus_l == 192)
@@ -34,7 +38,7 @@ static int kem_test(const char *named_parameters, int iterations)
 	printf("====================================================================="
 		   "========================================================\n");
 
-	for (int i = 0; i < KEM_TEST_ITERATIONS; i++)
+	for (int i = 0; i < iterations; i++)
 	{
 
 		scloud_kemkeygen(pk, sk);
